@@ -1,0 +1,120 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<h2 class="Shop-title">Craftsmanship that tells a story</h2>
+<p class="Shop-subtitle">Discover our curated collection of artisanal products and bring a piece of culture into your
+    home.</p>
+
+    
+<button id="filter-btn" onclick="showFilters()"><i class="fas fa-filter"></i> FILTER</button>
+
+<div id="filter-options" style="display:none">
+    <label><input type="checkbox" name="filter" value="a"> A</label>
+    <label><input type="checkbox" name="filter" value="b"> B</label>
+    <label><input type="checkbox" name="filter" value="c"> C</label>
+    <label><input type="checkbox" name="filter" value="d"> D</label>
+    <label><input type="checkbox" name="filter" value="e"> E</label>
+    <label><input type="checkbox" name="filter" value="f"> F</label>
+    <label><input type="checkbox" name="filter" value="g"> G</label>
+    <label><input type="checkbox" name="filter" value="h"> H</label>
+    <label><input type="checkbox" name="filter" value="i"> I</label>
+    <label><input type="checkbox" name="filter" value="j"> J</label>
+    <label><input type="checkbox" name="filter" value="k"> K</label>
+    <label><input type="checkbox" name="filter" value="l"> L</label>
+    <label><input type="checkbox" name="filter" value="m"> M</label>
+    <label><input type="checkbox" name="filter" value="n"> N</label>
+    <label><input type="checkbox" name="filter" value="o"> O</label>
+    <label><input type="checkbox" name="filter" value="p"> P</label>
+    <label><input type="checkbox" name="filter" value="q"> Q</label>
+    <label><input type="checkbox" name="filter" value="r"> R</label>
+    <label><input type="checkbox" name="filter" value="s"> S</label>
+    <label><input type="checkbox" name="filter" value="t"> T</label>
+    <label><input type="checkbox" name="filter" value="u"> U</label>
+    <label><input type="checkbox" name="filter" value="v"> V</label>
+    <label><input type="checkbox" name="filter" value="w"> W</label>
+    <label><input type="checkbox" name="filter" value="x"> X</label>
+    <label><input type="checkbox" name="filter" value="y"> Y</label>
+    <label><input type="checkbox" name="filter" value="z"> Z</label>
+    <button onclick="applyFilters()">Apply</button>
+</div>
+
+
+
+
+
+<div class="row">
+
+    {% for product in products %}
+
+    <div class="col-lg-4 product-card">
+        <img class="thumbnail" src="{{product.imageURL}}">
+        <div class="box-element product">
+            <h4 style="text-align: center; font-size: 18px;">{{product.name}}</h6>
+                <hr><br>
+                <button data-product="{{product.id}}" data-action="add"
+                    class="btn btn-outline-secondary add-btn update-cart" style="text-align: center;">Add to
+                    Cart</button>
+                <h4 style="display:block; float: right; font-size: 19px;">MUR {{product.price}}</h4>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    function showFilters() {
+        var filterOptions = document.getElementById("filter-options");
+        if (filterOptions.style.display === "none") {
+            filterOptions.style.display = "block";
+        } else {
+            filterOptions.style.display = "none";
+        }
+    }
+
+    function applyFilters() {
+        var filters = document.getElementsByName("filter");
+        var selectedFilters = "";
+        for (var i = 0; i < filters.length; i++) {
+            if (filters[i].checked) {
+                console.log(filters[i].value)
+                selectedFilters+=(filters[i].value);
+                console.log(selectedFilters)
+            }
+        }
+        var products = document.getElementsByClassName("product-card");
+        for (var i = 0; i < products.length; i++) {
+            products[i].style.display = "none"; // hide all products first
+        }
+        var filteredProducts = [];
+        for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            // var productName = product.querySelector("h4").innerText;
+            var productName = product.querySelector("h4").innerText;
+            if (selectedFilters.length === 0 || selectedFilters.indexOf(productName.charAt(0).toLowerCase()) !== -1) {
+                filteredProducts.push(product); // add matching products to array
+            }
+        }
+        console.log(filteredProducts)
+        // for (var product in filteredProducts)
+        // {
+        //     // product.style.display = "block";
+        //     // console.log(product)
+        // }
+        for (var i = 0; i < filteredProducts.length; i++) {
+            filteredProducts[i].style.display = "block"; // show matching products in order
+        }
+    }
+
+</script>
+
+
+{% endblock content %}
+
+
+
+
+
