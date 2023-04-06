@@ -490,6 +490,68 @@ h1, h2, h3, h4, h5, h6 {
   color: #E3B04B;
 }
 
+
+
+.container {
+  margin-top: 50px;
+  
+}
+
+
+.faq-box {
+    text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  /* margin: 0 20px; */
+  margin-bottom: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.faq-box:hover {
+  background: linear-gradient(#E3B04B, #fff);
+}
+
+.faq-box h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 0;
+  color: black;
+}
+
+.faq-box p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 0;
+  color: #E3B04B;
+}
+
+.faq-box:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #fff;
+  transition: all 0.7s ease;
+}
+
+.faq-box:hover:before {
+  background-color: #E3B04B;
+  border-radius: 8px;
+  transform: translateY(-3.5%);
+  
+}
+
+.text-center-two{
+    margin: 30px;
+    text-align: center;
+}
+
+
+
 @media (max-width: 576px) {
   .navbar-nav {
     width: 100%;
@@ -700,6 +762,7 @@ h1, h2, h3, h4, h5, h6 {
             <li class="nav-item">
                 <a class="nav-link" href="#ContactUs">CONTACT US</a>
             </li>
+
         </ul>
         <div class="form-inline my-2 my-lg-0">
             <!-- <a href="#" class="btn btn-warning">Login</a> -->
@@ -716,7 +779,7 @@ h1, h2, h3, h4, h5, h6 {
     <!-- <img src="{% static 'images/potential_bg.jpg' %}"> -->
     <div id="Home">
         <div class="container text-center">
-            <h1>Welcome to Island Crafts</h1>
+            <h1>Welcome to Island Treasuries</h1>
             <p>Discover the best of Mauritian artisanal products, handcrafted with love and care by local artisans. From
                 handmade jewelry to crafted DIY products, we offer a wide range of unique and sustainable gifts for you
                 and
@@ -784,6 +847,40 @@ h1, h2, h3, h4, h5, h6 {
                     </div>
             </div>
 </section>
+
+<hr style="width: 700px;">
+
+<div class="container">
+    <h2 class="text-center-two" style="font-size: 30px;">Frequently Asked Questions</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="faq-box">
+                <h3>How long has your enterprise been in operation?</h3>
+                <p>We have been in operation for around 7 years, and have continued to grow and expand our business
+                    during that time.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="faq-box">
+                <h3>What types of products or services does we enterprise offer?</h3>
+                <p>We offer a wide range of products and services, including artisanal food and beverages, handmade
+                    crafts, and
+                    eco-friendly household goods.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="faq-box">
+                <h3>What sets your enterprise apart from your competitors?</h3>
+                <p>We believe that our focus on sustainability and social responsibility, as well as our commitment to
+                    exceptional customer
+                    service, sets us apart from our competitors.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <footer id="ContactUs"
     style="background-color: #f9f9f9df; padding: 50px; color: #444; text-align: center; position: relative;">

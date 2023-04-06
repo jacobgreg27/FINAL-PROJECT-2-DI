@@ -81,6 +81,70 @@
     </div>
 </div>
 
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+<div id="info"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('myChart');
+    const data = {
+        labels: ['2018', '2019', '2020', '2021'],
+        datasets: [{
+            label: 'Number of Clients',
+            data: [200, 300, 600, 1000],
+            backgroundColor: [
+                '#E3B04B',
+                '#E3B04B',
+                '#E3B04B',
+                '#E3B04B'
+            ],
+            borderColor: [
+                'black',
+                'black',
+                'black',
+                'black'
+            ],
+            borderWidth: 1
+        }]
+    };
+    const options = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Numbers Don\'t Lie',
+                font: {
+                    size: 18,
+                    weight: 'bold'
+                },
+                color: 'black',
+                padding: {
+                    top: 10,
+                    bottom: 20
+                },
+                onHover: function (evt, active) {
+                    evt.target.style.cursor = active[0] ? 'pointer' : 'default';
+                    evt.target.style.color = active[0] ? '#00bfff' : 'black';
+                }
+            }
+        }
+    };
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+
+
+</script>
+
 
 <script>
     var total = '{{order.get_cart_total}}'
